@@ -80,49 +80,49 @@ class WebsocketClient:
         logging.info(f"Error closing connection: {e}")
   
   def validate_chain(self, chain: str) -> Tuple[bool, str]:
-        """
-        Validates whether a string meets the specified rules.
+    """
+    Validates whether a string meets the specified rules.
 
-        Returns:
-            True if the string meets the specified rules, False otherwise.
-            Error message if the chain does not meet the specified rules.
-        """
-        if not all(char in string.ascii_letters + string.digits + ' ' for char in chain):
-            return False, "Invalid characters"
+    Returns:
+      True if the string meets the specified rules, False otherwise.
+      Error message if the chain does not meet the specified rules.
+    """
+    if not all(char in string.ascii_letters + string.digits + ' ' for char in chain):
+      return False, "Invalid characters"
 
-        if not 50 <= len(chain) <= 100:
-            return False, "Invalid length"
+    if not 50 <= len(chain) <= 100:
+      return False, "Invalid length"
 
-        num_spaces = chain.count(' ')
-        if not 3 <= num_spaces <= 5:
-            return False, "Invalid number of spaces"
+    num_spaces = chain.count(' ')
+    if not 3 <= num_spaces <= 5:
+      return False, "Invalid number of spaces"
 
-        if chain.startswith(' ') or chain.endswith(' '):
-            return False, "Spaces at beginning or end"
+    if chain.startswith(' ') or chain.endswith(' '):
+      return False, "Spaces at beginning or end"
 
-        if '  ' in chain:
-            return False, "Consecutive spaces"
+    if '  ' in chain:
+      return False, "Consecutive spaces"
 
-        return True, None
+    return True, None
 
   def generate_chain(self) -> str:
-        """
-        Generates a string that meets the specified rules.
+    """
+    Generates a string that meets the specified rules.
 
-        Returns:
-            Chain that meets the specified rules.
-        """
-        chain_length = random.randint(50, 100)
-        num_spaces = random.randint(3, 5)
+    Returns:
+      Chain that meets the specified rules.
+    """
+    chain_length = random.randint(50, 100)
+    num_spaces = random.randint(3, 5)
         
-        characters = string.ascii_letters + string.digits
-        chain = ''.join(random.choice(characters) for _ in range(chain_length))
+    characters = string.ascii_letters + string.digits
+    chain = ''.join(random.choice(characters) for _ in range(chain_length))
 
-        for _ in range(num_spaces):
-            space_index = random.randint(1, chain_length - 2)
-            chain = chain[:space_index] + ' ' + chain[space_index:]
+    for _ in range(num_spaces):
+      space_index = random.randint(1, chain_length - 2)
+      chain = chain[:space_index] + ' ' + chain[space_index:]
 
-        return chain
+    return chain
 
   def save_chain(self, chain: str) -> None:
     """
@@ -161,7 +161,7 @@ class WebsocketClient:
       elif option == "3":
         self.send(self.get_all_chains())
       else:
-        print("Invalid option.")
+        logging.info("Invalid option.")
 
       time.sleep(1)
 

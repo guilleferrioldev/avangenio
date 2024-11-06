@@ -112,8 +112,8 @@ class WebsocketServer:
         'valid': False,
         'error': f"Double 'a' rule detected >> '{data}'"
       }
-    else: 
-      return {
+    
+    return {
       'valid': True,
       'error': None
     }
@@ -149,7 +149,6 @@ class WebsocketServer:
     """
     start_time = time.time() 
     total_weight = sum(self.calculate_string_weight(item) for item in data if self.validate_chains(item)['valid'])
-
     end_time = time.time()
     elapsed_time = end_time - start_time
 
