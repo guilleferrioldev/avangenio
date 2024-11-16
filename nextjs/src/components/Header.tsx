@@ -20,7 +20,7 @@ const menuItems = [
 export default function Header() {
   return (
     <header className="p-10 flex flex-col md:flex-row justify-between items-center text-center text-white w-full"> 
-      <nav className="hidden md:flex space-x-4 w-full md:w-4/12 md:order-1">
+      <nav className="hidden md:flex space-x-4 w-full md:w-[50vw] md:order-1">
         {menuItems.map((item, index) => (
           <Link
             key={item.name}
@@ -56,7 +56,7 @@ export default function Header() {
         </SheetContent>
       </Sheet>
 
-      <section className="flex items-center justify-between w-full md:w-6/12 order-1 md:order-2 mb-2 md:mb-0">
+      <section className="flex items-center justify-between w-full md:w-[50vw] order-1 md:order-2 mb-2 md:mb-0">
         <h1 className="text-xl font-bold mr-4">Gamor</h1>
         <UserMenu />
       </section>

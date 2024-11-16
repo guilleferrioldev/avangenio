@@ -10,6 +10,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			'my-dark-violet': 'hsl(259 55% 5%)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
