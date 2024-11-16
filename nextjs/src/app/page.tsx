@@ -1,15 +1,10 @@
-import { Header } from "@/components";
+import { Header, StreamingSection } from "@/components";
 
 export default function Home() {
   return (
-    <>
+    <main className="bg-my-dark-violet h-screen overflow-y-scroll overflow-x-hidden">
       <Header/>
-      <section className="p-10 text-center">
-        <h1 className="text-4xl font-bold">Welcome to Gamor</h1>
-        <p className="text-xl">
-          Gamor is a test for nextjs
-        </p>
-        </section>
-    </>
+      <StreamingSection/>
+    </main>
   );
 }
