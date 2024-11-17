@@ -10,7 +10,7 @@ export default async function Home() {
         <Header/>
         <StreamingSection games={games}/>
         <Suspense fallback={<TopGamesSkeleton/>}>
-          <TopGamesSection/>
+          <TopGamesSection games={games}/>
         </Suspense>
       </main>
     );

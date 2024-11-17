@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function SearchStreamsPanel() {
   return (
-    <div className="bg-gray-800 flex flex-col justify-center items-center w-full  h-full p-10 gap-4 rounded-b-2xl md:rounded-r-2xl md:rounded-b-none">
+    <div className="bg-gray-800 flex flex-col justify-center items-center w-full  h-[600px] p-10 gap-4 rounded-b-2xl md:rounded-r-2xl md:rounded-b-none">
                 <div className="flex flex-col justify-start w-full md:h-[20%] gap-4 ">
                     <h3><b className="text-gray-600 text-xl">01.</b> Choose platform</h3>
 

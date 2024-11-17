@@ -8,13 +8,16 @@ import { ArrowBigRightIcon, ArrowBigLeftIcon } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
+interface TopGamesSectionProps {
+    games?: IGame[];
+}
 
-export default function TopGamesSection() {
+export default function TopGamesSection({games}: TopGamesSectionProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [games, setGames] = useState<IGame[]>([]);
+  const [gamor, setGames] = useState<IGame[]>(games || []);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [cursor, setCursor] = useState<string | undefined>();
@@ -63,7 +66,7 @@ export default function TopGamesSection() {
         {isLoading ? (
           <TopGamesSkeleton/>
         ) : (
-          games.map((game, index) => (
+          gamor.map((game, index) => (
             <GameCard key={index} game={game} index={index} page={page}/>
           ))
         )}
