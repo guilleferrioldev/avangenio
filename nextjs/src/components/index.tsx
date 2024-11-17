@@ -5,6 +5,7 @@ import SearchChannelsPanel from "./SearchChannelsPanel";
 import StreamingSection from "./StreamingSection";
 import UserMenu from "./UserMenu";
 import GameCard from "./GameCard";
+import TopGamesSkeleton from "./TopGamesSkeleton";
 
 export {
     Header,
@@ -13,5 +14,6 @@ export {
     AuthButtons,
     SearchChannelsPanel,
     TopGamesSection,
-    GameCard
+    GameCard,
+    TopGamesSkeleton
 }
