@@ -1,13 +1,13 @@
-import { AuthButtons } from "@/components";
+import { AuthButtons, SearchChannelsPanel } from "@/components";
 import { ButtonPosition } from "@/types";
 
 export default function StreamingSection() {
   return (
-    <section className="w-full p-10 rounded-lg md:h-[80vh] ">
+    <section className="w-full p-10 rounded-lg md:h-[80vh] text-white">
         <div className="grid grid-cols-1 md:grid-cols-3 w-full h-full">
             <div className="bg-gray-800 flex flex-col justify-center items-center w-full h-full p-10 gap-4 rounded-t-2xl md:rounded-l-2xl md:rounded-r-none">
                 <div className="flex flex-col items-center justify-center">
-                    <h1 className="text-[3rem] md:text-[4rem] font-bold text-white">
+                    <h1 className="text-[3rem] md:text-[4rem] font-bold">
                         <p>start</p>
                         <p className="text-violet-500"><b>streaming</b></p> 
                         <p>games</p> 
@@ -24,9 +24,8 @@ export default function StreamingSection() {
             <div>
                 <h1 className="text-2xl font-bold">Streaming</h1>
             </div>
-            <div className="bg-gray-800 flex flex-col justify-center items-center w-full h-full p-10 gap-4 rounded-b-2xl md:rounded-r-2xl md:rounded-b-none">
-                
-            </div>
+            
+            <SearchChannelsPanel/>
         </div>
     </section>
   )
