@@ -1,14 +1,11 @@
-import { AuthButtons, SearchChannelsPanel } from "@/components";
-import { ButtonPosition } from "@/types";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { AuthButtons, SearchStreamsPanel, CarruselSection} from "@/components";
+import { ButtonPosition, IGame } from "@/types";
 
-export default function StreamingSection() {
+interface StreamingSectionProps {
+    games?: IGame[];
+}
+
+export default function StreamingSection({games}: StreamingSectionProps) {
   return (
     <section className="w-full p-10 rounded-lg md:h-[80vh] text-white">
         <div className="grid grid-cols-1 md:grid-cols-3 w-full h-full">
@@ -29,27 +26,8 @@ export default function StreamingSection() {
                 />
             </div>
 
-            <div className="bg-red-200< flex justify-center items-center w-full h-full">
-                <Carousel className="w-full h-full flexjustify-center items-center">
-                    <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                            <CarouselItem key={index}>
-                                <div className="p-1">
-                                    <div className="flex aspect-square items-center justify-center p-6">
-                                        <span className="text-4xl font-semibold">{index + 1}</span>
-                                    </div>
-                                </div>
-                        </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <div className="absolute inset-0 flex items-center justify-between text-black bottom-[50%] text-sm">
-                        <CarouselPrevious className="relative left-10" />
-                        <CarouselNext className="relative right-10" />
-                    </div>
-                </Carousel>
-            </div>
-            
-            <SearchChannelsPanel/>
+            <CarruselSection games={games}/>
+            <SearchStreamsPanel/>
         </div>
     </section>
   )

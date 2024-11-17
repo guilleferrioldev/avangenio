@@ -1,14 +1,22 @@
+import { geTopGamesAction } from "@/actions";
 import { TopGamesSection, Header, StreamingSection, TopGamesSkeleton } from "@/components";
 import { Suspense } from "react";
 
 export default async function Home() {
-  return (
-    <main className="flex flex-col bg-my-dark-violet h-screen overflow-y-scroll overflow-x-hidden">
-      <Header/>
-      <StreamingSection/>
-      <Suspense fallback={<TopGamesSkeleton/>}>
-        <TopGamesSection/>
-      </Suspense>
-    </main>
-  );
+  try {
+    const { data: games } = await geTopGamesAction();
+    return (
+      <main className="flex flex-col bg-my-dark-violet h-screen overflow-y-scroll overflow-x-hidden">
+        <Header/>
+        <StreamingSection games={games}/>
+        <Suspense fallback={<TopGamesSkeleton/>}>
+          <TopGamesSection/>
+        </Suspense>
+      </main>
+    );
+  } catch (error) {
+    console.error(error);
+    return <div>Error</div>
+  }
+
 }

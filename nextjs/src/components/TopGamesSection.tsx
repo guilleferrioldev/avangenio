@@ -23,7 +23,7 @@ export default function TopGamesSection() {
     const fetchGames = async () => {
       setIsLoading(true);
       try {
-        const { data, next } = await geTopGamesAction(searchParams.get("search"), cursor);
+        const { data, next } = await geTopGamesAction(searchParams.get("game"), cursor);
         const fetchedGames = [...data];
         setCursor(next);
         setGames(fetchedGames);
@@ -39,9 +39,9 @@ export default function TopGamesSection() {
     const params = new URLSearchParams(searchParams)
 
     if (value) {
-        params.set("search", value)
+        params.set("game", value)
     } else {
-        params.delete("search")   
+        params.delete("game")   
     }
     setCursor(undefined)
     setPage(0)
