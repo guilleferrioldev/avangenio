@@ -59,7 +59,7 @@ export default function TopGamesSection() {
           className="w-auto p-2 h-10 bg-gray-800 text-white rounded-2xl focus:outline-none focus:ring-0"/>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[40vh] order-3 md:order-2">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[40vh] order-3 md:order-2 w-full">
         {isLoading ? (
           <TopGamesSkeleton/>
         ) : (
