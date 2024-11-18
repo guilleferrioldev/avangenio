@@ -1,7 +1,7 @@
 import AuthButtons from "./AuthButton";
 import TopGamesSection from "./TopGamesSection";
 import Header from "./Header";
-import SearchStreamsPanel from "./SearchStreamsPanel";
+import SearchGamesPanel from "./SearchGamesPanel";
 import StreamingSection from "./StreamingSection";
 import UserMenu from "./UserMenu";
 import GameCard from "./GameCard";
@@ -13,7 +13,7 @@ export {
     UserMenu,
     StreamingSection,
     AuthButtons,
-    SearchStreamsPanel,
+    SearchGamesPanel,
     CarruselSection,
     TopGamesSection,
     GameCard,

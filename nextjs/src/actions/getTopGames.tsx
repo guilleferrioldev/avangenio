@@ -2,9 +2,9 @@
 
 import { IGame } from "@/types";
 
-export async function geTopGamesAction(cursor?: string): Promise<{ data: IGame[], next?: string }> {
+export async function geTopGamesAction(cursor?: string, first?: number): Promise<{ data: IGame[], next?: string }> {
     try {
-        const response = await fetch(`${process.env.BASE_URL}/games/top?first=8${cursor ? `&after=${cursor}` : ""}`, {
+        const response = await fetch(`${process.env.BASE_URL}/games/top?first=${first ? first : 8}${cursor ? `&after=${cursor}` : ""}`, {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',

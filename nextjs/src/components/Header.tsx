@@ -8,7 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Link from "next/link"
-import { UserMenu } from "."
+import { UserMenu } from "@/components"
 
 const menuItems = [
   { name: 'Home', href: '/' },

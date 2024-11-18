@@ -1,38 +1,11 @@
 "use client";
 
-import { geTopGamesAction } from "@/actions";
-import { IGame } from "@/types";
-import { useCallback, useEffect, useState } from "react";
 import { GameCard, TopGamesSkeleton} from "@/components";
 import { ArrowBigRightIcon, ArrowBigLeftIcon } from "lucide-react";
+import { useGames } from "@/hooks";
 
-interface TopGamesSectionProps {
-    games?: IGame[];
-}
-
-export default function TopGamesSection({games}: TopGamesSectionProps) {
-  const [gamor, setGames] = useState<IGame[]>(games ?? []);
-  const [acumulatedGames, setAcumulatedGames] = useState<IGame[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(0);
-  const [cursor, setCursor] = useState<string | undefined>();
-
-  const fetchGames = useCallback(async () => {
-    setIsLoading(true);
-    try {
-     const { data, next } = await geTopGamesAction(cursor);
-     setCursor(next);
-     setAcumulatedGames(prevGames => [...prevGames, ...data]);
-     setGames(data);
-    } finally {
-     setIsLoading(false);
-    }
-   }, [cursor]);
-
-  useEffect(() => {
-    fetchGames();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+export default function TopGamesSection() {
+  const { games, setGames, page, setPage, acumulatedGames, isLoading, fetchGames } = useGames();
 
   const handleBefore = () => {
     if (page === 0) return
@@ -41,8 +14,7 @@ export default function TopGamesSection({games}: TopGamesSectionProps) {
  }
 
   const handleNext = () => {
-     if (gamor.length < 8) return
-     console.log(page, page + 8, acumulatedGames.length)
+     if (games.length < 8) return
      if (page + 8 === acumulatedGames.length ) {
       fetchGames()
      } else {
@@ -66,7 +38,7 @@ export default function TopGamesSection({games}: TopGamesSectionProps) {
         {isLoading ? (
           <TopGamesSkeleton/>
         ) : (
-          gamor.map((game, index) => (
+          games.map((game, index) => (
             <GameCard key={index} game={game} index={index} page={page}/>
           ))
         )}

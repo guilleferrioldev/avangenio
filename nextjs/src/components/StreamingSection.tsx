@@ -1,4 +1,4 @@
-import { AuthButtons, SearchStreamsPanel, CarruselSection} from "@/components";
+import { AuthButtons, SearchGamesPanel, CarruselSection} from "@/components";
 import { ButtonPosition, IGame } from "@/types";
 
 interface StreamingSectionProps {
@@ -27,7 +27,7 @@ export default function StreamingSection({games}: StreamingSectionProps) {
             </div>
 
             <CarruselSection games={games}/>
-            <SearchStreamsPanel/>
+            <SearchGamesPanel/>
         </div>
     </section>
   )
