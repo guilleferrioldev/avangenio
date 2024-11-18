@@ -1,10 +1,9 @@
 "use server";
 
-import { IGame } from "@/types";
 
-export async function geTopGamesAction(cursor?: string): Promise<{ data: IGame[], next?: string }> {
+export async function getStreamsAction(): Promise<[]> {
     try {
-        const response = await fetch(`${process.env.BASE_URL}/games/top?first=8${cursor ? `&after=${cursor}` : ""}`, {
+        const response = await fetch(`https://api.twitch.tv/helix/streams`, {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',
@@ -14,9 +13,9 @@ export async function geTopGamesAction(cursor?: string): Promise<{ data: IGame[]
             },
         });
         const data = await response.json();
-        return { data: data.data ?? [], next: data.pagination?.cursor }
+        return data.data;
     } catch (error) {
         console.error(error);
-        return { data: [], next: undefined };
+        return [];
     }
 }

@@ -3,9 +3,9 @@ import { Separator } from "@/components/ui/separator"
 import { PartyPopper, Database, Video } from 'lucide-react'
 import { Button } from "@/components/ui/button";
 
-export default function SearchChannelsPanel() {
+export default function SearchStreamsPanel() {
   return (
-    <div className="bg-gray-800 flex flex-col justify-center items-center w-full  h-full p-10 gap-4 rounded-b-2xl md:rounded-r-2xl md:rounded-b-none">
+    <div className="bg-gray-800 flex flex-col justify-center items-center w-full  h-[600px] p-10 gap-4 rounded-b-2xl md:rounded-r-2xl md:rounded-b-none">
                 <div className="flex flex-col justify-start w-full md:h-[20%] gap-4 ">
                     <h3><b className="text-gray-600 text-xl">01.</b> Choose platform</h3>
 
@@ -28,7 +28,10 @@ export default function SearchChannelsPanel() {
                     <h3><b className="text-gray-600 text-xl">02.</b> Searching Game</h3>
                     
                     <div className="w-full h-[90%] bg-gray-900 rounded-2xl p-4">
-                    <input type="text" className="w-full h-2/12 bg-gray-900 text-white rounded-2xl focus:outline-none focus:ring-0" placeholder="Searching game..."/>
+                        <input type="text" 
+                        className="w-full h-2/12 bg-gray-900 text-white rounded-2xl focus:outline-none focus:ring-0 pl-2" 
+                        placeholder="Search for a game"
+                        />
                         <Separator className="my-4" />
                         <div className="flex flex-col gap-4 w-full h-[70%] overflow-y-scroll">
                             

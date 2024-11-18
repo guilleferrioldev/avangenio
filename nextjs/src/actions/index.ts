@@ -1,2 +1,2 @@
 export * from "./getTopGames";
-export * from "./getChannelAction";
+export * from "./getStreamsAction";
