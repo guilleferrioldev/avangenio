@@ -1,9 +1,9 @@
 "use server";
 
 
-export async function getStreamsAction(): Promise<[]> {
+export async function getCategoriesAction(query: string): Promise<[]> {
     try {
-        const response = await fetch(`https://api.twitch.tv/helix/streams`, {
+        const response = await fetch(`${process.env.BASE_URL}/search/categories?query=${query}&first=3`, {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',
