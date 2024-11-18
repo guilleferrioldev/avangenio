@@ -30,7 +30,7 @@ export default function SearchStreamsPanel() {
                     <div className="w-full h-[90%] bg-gray-900 rounded-2xl p-4">
                         <input type="text" 
                         className="w-full h-2/12 bg-gray-900 text-white rounded-2xl focus:outline-none focus:ring-0 pl-2" 
-                        placeholder="Search a channel"
+                        placeholder="Search for a game"
                         />
                         <Separator className="my-4" />
                         <div className="flex flex-col gap-4 w-full h-[70%] overflow-y-scroll">

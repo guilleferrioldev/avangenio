@@ -2,20 +2,9 @@
 
 import { IGame } from "@/types";
 
-export async function geTopGamesAction(query?: string| null, cursor?: string): Promise<{ data: IGame[], next?: string }> {
+export async function geTopGamesAction(cursor?: string): Promise<{ data: IGame[], next?: string }> {
     try {
-        let queryString
-        if (query) {
-                queryString = `${process.env.BASE_URL}/search/categories?query=${query}&first=8`
-        } else {
-                queryString = `${process.env.BASE_URL}/games/top?first=8`
-        }
-
-        if (cursor) {
-            queryString = queryString + `&after=${cursor}`
-        }
-
-        const response = await fetch(queryString, {
+        const response = await fetch(`${process.env.BASE_URL}/games/top?first=8${cursor ? `&after=${cursor}` : ""}`, {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',
