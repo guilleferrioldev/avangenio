@@ -1,9 +1,11 @@
 "use server";
 
+import { IGame } from "@/types";
 
-export async function getCategoriesAction(query: string): Promise<[]> {
+
+export async function getCategoriesAction(query: string, cursor?: string): Promise<{ data: IGame[], next?: string }> {
     try {
-        const response = await fetch(`${process.env.BASE_URL}/search/categories?query=${query}&first=3`, {
+        const response = await fetch(`${process.env.BASE_URL}/search/categories?query=${query}&first=8${cursor ? `&after=${cursor}` : ""}`, {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',
@@ -13,9 +15,9 @@ export async function getCategoriesAction(query: string): Promise<[]> {
             },
         });
         const data = await response.json();
-        return data.data;
+        return { data: data.data ?? [], next: data.pagination?.cursor }
     } catch (error) {
         console.error(error);
-        return [];
+        return { data: [], next: undefined };
     }
 }
